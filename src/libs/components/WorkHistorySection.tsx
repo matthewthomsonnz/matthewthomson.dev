@@ -1,7 +1,7 @@
 import profileImage from '@/assets/images/mt-profile.png';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Lightbox from 'yet-another-react-lightbox';
+// import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import {useState} from 'react';
 import MaxWidthSection from "./MaxWidthSection.tsx";
@@ -13,15 +13,15 @@ interface WorkHistorySectionProps {
 }
 
 
-const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items, ...props}) => {
+const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items}) => {
     const galleryImages = [
         {id: 1, src: {profileImage}, alt: 'Image 1 description', blurb: 'This is a short description for image 1.'},
         {id: 2, src: {profileImage}, alt: 'Image 2 description', blurb: 'This is a short description for image 1.'},
         {id: 3, src: {profileImage}, alt: 'Image 3 description', blurb: 'This is a short description for image 1.'},
         {id: 4, src: {profileImage}, alt: 'Image 3 description', blurb: 'This is a short description for image 1.'},
     ];
-    const [open, setOpen] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [, setOpen] = useState(false);
+    const [, setCurrentIndex] = useState(0);
 
     const handleImageClick = (index: number) => {
         setCurrentIndex(index);
