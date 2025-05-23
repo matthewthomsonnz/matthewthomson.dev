@@ -8,18 +8,28 @@ import MaxWidthSection from "./MaxWidthSection.tsx";
 
 interface WorkHistorySectionProps {
     title: string;
+    leadingText: string;
+    text: string;
     items: Array<string>;
+    from?: string;
+    to?: string;
     className?: string;
+    galleryImages?: Array<object>;
+    embed?: string
 }
 
 
-const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items}) => {
-    const galleryImages = [
-        {id: 1, src: {profileImage}, alt: 'Image 1 description', blurb: 'This is a short description for image 1.'},
-        {id: 2, src: {profileImage}, alt: 'Image 2 description', blurb: 'This is a short description for image 1.'},
-        {id: 3, src: {profileImage}, alt: 'Image 3 description', blurb: 'This is a short description for image 1.'},
-        {id: 4, src: {profileImage}, alt: 'Image 3 description', blurb: 'This is a short description for image 1.'},
-    ];
+const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({
+                                                                   title,
+                                                                   items,
+                                                                   from,
+                                                                   to,
+                                                                   leadingText,
+                                                                   text,
+                                                                   embed,
+                                                                   galleryImages = []
+                                                               }) => {
+
     const [, setOpen] = useState(false);
     const [, setCurrentIndex] = useState(0);
 
@@ -28,28 +38,18 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items}) =
         setOpen(true);
     };
     const responsive = {
-        superLargeDesktop: {
-            breakpoint: {max: 4000, min: 3000},
-            partialVisibilityGutter: 50,
-            centerMode: true,
-            items: 1
-        },
+
         desktop: {
             breakpoint: {max: 3000, min: 1024},
-            partialVisibilityGutter: 50,
-            centerMode: true,
             items: 1
+
         },
         tablet: {
             breakpoint: {max: 1024, min: 464},
-            partialVisibilityGutter: 50,
-            centerMode: true,
             items: 1
         },
         mobile: {
             breakpoint: {max: 464, min: 0},
-            partialVisibilityGutter: 50,
-            centerMode: true,
             items: 1
         }
     };
@@ -76,8 +76,12 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items}) =
     return (
         <MaxWidthSection>
             <div>
-
-                <h3>{title}</h3>
+                <div className="d-flex border-b-sm pb-4 mb-8 align-end">
+                    <h3>{title}</h3>
+                    <span className=" mb-2 font-italic ms-auto">{from} - {to}</span>
+                </div>
+                <p className="mb-8">{leadingText}</p>
+                <p className="mb-8 fw-400 font-italic">{text}</p>
                 <div className="d-flex">
                     <div className='flex-grow-1'>
                         <ul>
@@ -89,20 +93,25 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({title, items}) =
                     </div>
 
                     <div style={{display: 'block', width: '640px'}}>
-                        <Carousel centerMode={true} responsive={responsive} infinite={true}
-                                  containerClass="carousel-container">
-                            {galleryImages.map((image, index) => (
-                                <div key={image.id} style={{padding: '10px'}}
-                                     onClick={() => handleImageClick(index)}>
-                                    <img
-                                        src={image.src.profileImage}
-                                        alt={image.alt}
-                                        style={{width: '100%', display: 'block'}}
-                                    />
-                                    <p style={{fontSize: '0.9em', color: '#555'}}>{image.blurb}</p>
-                                </div>
-                            ))}
-                        </Carousel>
+                        {embed ? (<iframe width="560" height="315"
+                                          src={embed}
+                                          title="YouTube video player"
+                                          frameBorder="0"
+                                          allowFullScreen></iframe>)
+                            : (<Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={5000}>
+                                {galleryImages.map((image, index) => (
+                                    <div key={image.id} style={{padding: '10px'}}
+                                         onClick={() => handleImageClick(index)}>
+                                        <img
+                                            src={image.src}
+                                            alt={image.alt}
+                                            style={{width: '100%', display: 'block'}}
+                                        />
+                                        <p style={{fontSize: '0.9em', color: '#555'}}>{image.text}</p>
+                                    </div>
+                                ))}
+                            </Carousel>)
+                        }
                     </div>
                 </div>
             </div>

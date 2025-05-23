@@ -10,8 +10,8 @@ const MaxWidthSection: React.FC<LayoutProps> = ({children, noVerticalPadding, ..
     const verticalPaddingClass = noVerticalPadding ? '' : 'py-16';
 
     return (
-        <section {...props}>
-            <div className={`d-flex px-8 mx-auto mw-800px ${verticalPaddingClass}`}>
+        <section className="max-width-section" {...props}>
+            <div className={`max-width-section__content d-flex px-8 mx-auto mw-800px ${verticalPaddingClass}`}>
                 {children}
             </div>
         </section>
