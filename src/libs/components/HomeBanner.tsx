@@ -24,6 +24,7 @@ const HomeBanner = () => {
                          noVerticalPadding>
             <div>
                 <img src={profileImage}
+                     style={{aspectRatio: '1 / 1'}}
                      alt="profile picture"
                      className='flex-shrink-1 bg-white'/>
             </div>
