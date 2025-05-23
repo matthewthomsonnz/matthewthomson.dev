@@ -97,13 +97,11 @@ const WorkHistoryList = () => {
                             to="May 2019 (periodic contracting)"
                             galleryImages={[
                                 {
-                                    id: 1,
                                     src: '/dooh/rockTheRibbon.jpg',
                                     alt: 'Image 1 description',
                                     blurb: 'This is a short description for image 1.'
                                 },
                                 {
-                                    id: 2,
                                     src: '/dooh/colaChristmas.jpg',
                                     alt: 'Image 2 description',
                                     blurb: 'This is a short description for image 1.'
@@ -154,13 +152,11 @@ const WorkHistoryList = () => {
                               I was in charge of the Website and the the UX and user flow planning of internal/external applications"
                             galleryImages={[
                                 {
-                                    id: 1,
                                     src: '/competenz/competenz.jpg',
                                     alt: 'Image 1 description',
                                     blurb: 'This is a short description for image 1.'
                                 },
                                 {
-                                    id: 2,
                                     src: '/competenz/lead-acid-battery-layout.gif',
                                     alt: 'Image 2 description',
                                     blurb: 'This is a short description for image 1.'

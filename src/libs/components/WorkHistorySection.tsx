@@ -1,10 +1,16 @@
-import profileImage from '@/assets/images/mt-profile.png';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 // import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import {useState} from 'react';
 import MaxWidthSection from "./MaxWidthSection.tsx";
+
+interface GalleryImage {
+    src: string;
+    alt: string;
+    text?: string;
+    blurb?: string;
+}
 
 interface WorkHistorySectionProps {
     title: string;
@@ -14,7 +20,7 @@ interface WorkHistorySectionProps {
     from?: string;
     to?: string;
     className?: string;
-    galleryImages?: Array<object>;
+    galleryImages?: Array<GalleryImage>;
     embed?: string
 }
 
@@ -100,7 +106,7 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({
                                           allowFullScreen></iframe>)
                             : (<Carousel responsive={responsive} infinite={true} autoPlay={true} autoPlaySpeed={5000}>
                                 {galleryImages.map((image, index) => (
-                                    <div key={image.id} style={{padding: '10px'}}
+                                    <div key={index} style={{padding: '10px'}}
                                          onClick={() => handleImageClick(index)}>
                                         <img
                                             src={image.src}
