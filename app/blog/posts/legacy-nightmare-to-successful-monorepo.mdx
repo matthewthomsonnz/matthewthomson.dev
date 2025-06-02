@@ -1,0 +1,43 @@
+---
+title: 'legacy-nightmare-to-successful-monorepo'
+publishedAt: '2024-04-07'
+summary: 'The summary'
+---
+
+When I cam on to a small company, the front-end codebase was a nightmare to work with
+- so much data was exposed to the front end indiscriminantely
+- a pattern was to copy paste components and change them slightly for each context
+- the pattern relied heavily on VueX (global state management) for requests and state. this lead to hard to figure out where data is coming from and hard to follow.
+- the webpack was so poorly set up. there was a huge file size  'module' (like, a collection of big components) called reporting. A different module (called budget) imported one single component into it, therefore, including the ENTIRE of the reporting code unused into the bundle delivered client side.
+- opposite of hateaos - vague flags everywhere
+- Built in Vue/Vuetify 2 rapidly approaching EOL. Vue provided an upgrade path to Vue 3, but Vueitfy went ahead and used all the shiny new functional composition api, with absolutely no way to migrate anything Vueitfy 2.
+- First webpack build was upwards of a minute. Just saving was at least 15 seconds to recompile.
+- outdated libraries with critical security vulnerabilites and far too many daily driven components to upgrade them
+- Couldnt upgrade many libraries due to widespread breaking changes
+
+So thats the situation. I was tasked with fixing this. I did some research, came up with a plan
+
+Enter the monorepo
+
+I got the idea from ______. where the idea is, you host multiple 'apps' within the monorepo, each can have their own dependencies e.g. one could theoretically host react, one svelte, one vue 3, one vue 4.
+
+So I implemented it, I used concurrently to run multiple 'vite build' for each app.
+
+The only issue was, wont this cause the file size to balloon with duplicate code in each 'app'?
+
+The solution: Shared libraries imported by a 'site-wide' app (e.g Vue, Vuetify, Lodash, Axios, Icon fonts) then passed to the Window object for other monorepo apps to consume.
+
+The result? Each app had a very low filesize, as Vite would tell the
+
+Over the past year or two its been a huge success. When you make changes to the code
+
+No global state management - I implemented a simple event bus `window.bus.emit()`, `window.bus.on()`, (being careful about memory leaks) and
+
+we  provide the data every app needs via an 'entrypoint' dto which is passed into the template on the vue prop json encoded.
+
+
+Drawbacks:
+The only drawback we've found is the 'site-wide' repo has become quite large, thus making changes to site-wide code is slow (but its a tradeoff, and the bulk of the work should be developing features inside each app)
+
+##Another liminal approach
+The Spotify approach - iframes. Yes it feels hacky, and some will wince at this, but its a good solution. You can make a component using the latest tech, and embed it as an iframe among your ancient jquery/angularJs dinosaurs instead of spending months rewriting everything at once and get customers used to the change.

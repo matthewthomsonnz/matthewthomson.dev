@@ -1,0 +1,33 @@
+---
+title: 'Hot take: unit testing a single SUT is the only acceptable way'
+publishedAt: '2024-04-07'
+summary: 'The summary'
+---
+
+Trigger warning - the purpose of me writing this is to change my mind about this, from my experience this is the only way.
+
+For the front end:
+- virtual dom - listening for and redispatching events
+- actual headless browser - super heavy
+- need test coverage
+Selenium, Cypress, Playwright
+
+For the backend:
+- End-to-End test,
+- feature test
+- integration test
+- database calls
+- checking functions return a view (e.g. html) that contains 'foo'
+
+Leads to slow
+
+You should just stub out any methods it calls and just check they are called x times
+
+I honestly think anyone that does these needs a discussion
+
+you just end up testing things that a few years down the track someone asks 'this is so pointless'.
+
+Ive seen companies where everyone should be developing for the customer, waste so much
+
+Should use Static Analysis Tools (e.g., PHPStan, ESLint)
+Code Coverage Tools (e.g., Xdebug):

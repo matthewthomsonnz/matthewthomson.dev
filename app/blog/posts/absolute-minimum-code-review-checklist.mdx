@@ -1,0 +1,80 @@
+---
+title: 'Absolute minimum code review checklist'
+publishedAt: '2024-04-07'
+summary: 'The summary'
+---
+
+Note: the below is centered around Vue
+
+### Vue quirks
+ ```
+ items.value.push(data) // wont trigger reactivity when using defineModel() or watchers wont fire
+ ```
+
+
+
+
+### boolean naming
+ https://dev.to/michi/tips-on-naming-boolean-variables-cleaner-code-35ig
+
+### v-for/template loops are keyed
+
+### memory leaks
+- event listeners are torn down
+- check for global variable shananegans
+
+
+### booleans
+ should be prefixed with `is` `are` `should` etc
+
+### props
+ are an exception to the above, they can be `modalOpen` instead of `isModalOpen`
+!! list a reference for prop naming
+
+### code of similar concerns
+should be grouped together  https://vuejs.org/guide/extras/composition-api-faq#more-flexible-code-organization
+
+- JS enums insted of if `someVariable = 2`
+  - unrepresentable state logic errors
+  - clearer to read
+  - only update in one place
+
+### constants
+const SHOULD_BE_UPPER_SNAKE_CASE
+
+### reusability
+- Ensure components are genuinely reusable, and not a copy paste and change slightly
+  - makes code unmaintainable long term
+  - you dont want three disparate implementations of a file upload component, where you have to manually one day add max file size, max number of items etc
+  - no to mention visual consistency leading to lack of familiarity
+
+  ### memoization
+  Look for methods being called where computed() can be used. Vue doesnt have template variables leaving it suceptible to a method call in a loop in multiple places
+
+  ### request state/error handling
+
+ - loading state should be set to false under `finally()`
+ - buttons should be disabled
+ - inputs surface api errors gracefully
+
+ ### verbose function names and comments only when necessary
+- Code should be able to be understood at a glance.
+- Free from redundant comments
+
+### function/ method names
+- should be verbose
+- should tell you what they do
+- shouldnt do somethhing they dont tell you about
+- if from an event, should be prefixed with handle
+
+
+# logs
+- no console logs, warnings, errors
+
+# layout shift
+- things shouldnt jus
+
+# clear data flow
+- provide/inject should be reserved for well thought out scenarios
+- components should be 'dumb'
+- components should be structured so its clear how the data is passed between them

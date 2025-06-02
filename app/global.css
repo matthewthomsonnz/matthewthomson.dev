@@ -87,19 +87,19 @@ html {
   @apply my-4 text-neutral-800 dark:text-neutral-200;
 }
 
-.prose h1 {
+h1 {
   @apply text-4xl font-medium tracking-tight mt-6 mb-2;
 }
 
-.prose h2 {
+h2 {
   @apply text-xl font-medium tracking-tight mt-6 mb-2;
 }
 
-.prose h3 {
+h3 {
   @apply text-xl font-medium tracking-tight mt-6 mb-2;
 }
 
-.prose h4 {
+ h4 {
   @apply text-lg font-medium tracking-tight mt-6 mb-2;
 }
 
@@ -107,11 +107,11 @@ html {
   @apply font-medium;
 }
 
-.prose ul {
+ul {
   @apply list-disc pl-6;
 }
 
-.prose ol {
+ol {
   @apply list-decimal pl-6;
 }
 
@@ -147,4 +147,23 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+@theme {
+  --color-sunshine: #FFF0C3;
+  --color-sunshine-light: hsl(45, 100%, 96%);
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-top: 0px !important;
 }

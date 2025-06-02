@@ -1,0 +1,24 @@
+---
+title: 'I ran my engine with an arduino'
+publishedAt: '1980-04-07'
+summary: 'The summary'
+tags:['fun','non-dev-related']
+---
+
+I have an old 2 liter non-turbo manual impreza I take to the track for fun. I thought it would be fun to install some cheap engine
+ management and push the performance to the limit.
+
+ It was an opportunity for me to learn arduino and automotive electrical wiring at the same time.
+
+Challenges and learnings:
+- Having to cut the injector wires as the factory ecu applies voltage, whereas Speeduino grounds to trigger spark
+- the Subaru 6/7 trigger wheel code is buggy. It would take about 10 seconds of cranking before it would fire
+- running both radiator fan relays off a single pin
+- Not having a plug and play ecu was annoying, I wanted to be able to plug my factory ecu back in (in case my jerry-rigged ecu just stopped working) but became messy with the wire cutting
+
+I didn't blow up the car in the end, I have now taken the good parts  and scrapped it though (for my  identical but faster version of the same car)
+
+```js
+let message: string = greet(123)
+```
+

@@ -1,0 +1,41 @@
+
+
+---
+title: 'Key takeaways from reading - Clean Code by Robert C. Martin'
+publishedAt: '2024-04-07'
+summary: 'The summary'
+---
+
+### Use descriptive and unambiguous names
+and
+Write meaningful comments, but strive for self-documenting code:
+
+This was my favoiurite one. Too many times I've seen devs write some unclear function that uses undescriptive variables. your code should be clear what it does at a glance.
+
+- Comments should explain why something is done, not what is done . Good code needs fewer comments.
+-  clearly communicate their purpose and avoid abbreviations or cryptic codes
+  - e.g. calculateTotalAmount instead of calcAmt.
+
+
+- Functions should be small and do one thing
+Each function should have a single, well-defined responsibility. This makes them easier to understand, test, and maintain.
+ They should adhere to the Single Responsibility Principle.
+
+- Aim for zero, one, or two arguments, and rarely more than three.
+They're harder to use, test, and understand otherwise
+
+Avoid duplication (DRY - Don't Repeat Yourself)
+- yes, but, I've seen exceptions in quite a few cases. A good rule of thumb is if you're DRYing so much that it makes the code cryptic, youre on the wrong path.
+-  it can make code easier to follow having a bit of repitition. If you feel like you're looking in the jungle for what some code is doing is a good sign.
+
+Error handling is important, but don't obscure logic
+On the front end have a composable that handles any request error, on the backend put all your validation in a DTO up-front or a validatior
+
+Format your code consistently and clearly
+- this shows the books age. My takeaway was tick the 'Run eslint --fix on save checkbox', have rules you like,  and make sure all the devs have the same settings.
+
+Tests should be clean, readable, and fast.
+- I've seen all kinds of tests that felt off and were slow. Test one SUT at a time. No database queries. Stub out everything else to be tested separately.
+
+Classes should be small and have a single responsibility: Similar to functions, classes should focus on one area of concern.
+Strive for minimal dependencies and loose coupling: Components that are highly dependent on each other are harder to change and test. Design systems with loosely coupled modules.

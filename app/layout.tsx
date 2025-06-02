@@ -1,23 +1,27 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Inconsolata} from 'next/font/google'
 import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
+import {ViewTransitions} from "next-view-transitions";
+
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Senior front-end developer - Matthew Thomson',
+    template: '%s | Matthew Thomson Senior front-end developer',
   },
   description: 'This is my portfolio.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Matthew Thomson',
+    description: 'Senior front-end developer',
     url: baseUrl,
     siteName: 'My Portfolio',
     locale: 'en_US',
@@ -37,30 +41,27 @@ export const metadata: Metadata = {
 }
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
+      <ViewTransitions>
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
+        `text-black dark:text-white bg-sunshine-light ${inconsolata.className}`,
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="antialiased">
+        <main className="flex-auto min-w-0 flex flex-col">
           <Navbar />
           {children}
           <Footer />
-          <Analytics />
-          <SpeedInsights />
         </main>
       </body>
     </html>
+      </ViewTransitions>
   )
 }

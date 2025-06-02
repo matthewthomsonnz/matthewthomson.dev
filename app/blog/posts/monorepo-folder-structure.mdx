@@ -1,0 +1,9 @@
+---
+title: 'vue-react-svelte-cheatsheet'
+publishedAt: '2024-04-07'
+summary: 'The summary'
+---
+
+| Vue | React | Svelte |
+|---|---|---|
+| ```vue<template>  <div>    <p>Computed Property: {{ reversedMessage }}</p>  </div></template><script>export default {  data() {    return {      message: 'Hello Vue!'    };  },  computed: {    reversedMessage() {      return this.message.split('').reverse().join('');    }  }};</script>``` | ```jsximport React, { useMemo, useState } from 'react';function MyComponent() {  const [message, setMessage] = useState('Hello React!');  const reversedMessage = useMemo(() => {    return message.split('').reverse().join('');  }, [message]);  return (    <div>      <p>Memoized Value: {reversedMessage}</p>    </div>  );}export default MyComponent;``` | ```svelte<script>  let message = 'Hello Svelte!';  $: reversedMessage = message.split('').reverse().join('');</script><p>Reactive Declaration: {reversedMessage}</p>``` |
