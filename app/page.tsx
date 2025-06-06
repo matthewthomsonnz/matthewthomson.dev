@@ -10,7 +10,7 @@ export default function Page() {
 
     return (
       <>
-    <section className="mb-8">
+    <section className="my-6">
         <div>
             <div className="max-w-xl mx-auto flex items-center">
                 <div className="">
@@ -139,7 +139,6 @@ export default function Page() {
                             "Responding to helpdesk tickets",
                             "Many hours learning CSS and DOM element control"]}/>
     <WorkHistorySection title="DOOH.com"
-                        className="bg-sunshine"
                         from="Oct 2018"
                         to="May 2019 (periodic contracting)"
                         galleryImages={[
@@ -163,6 +162,7 @@ export default function Page() {
                             "Socket.io to communicate with other devices",
                             "Worked with Dynamic content from API data"]}/>
     <WorkHistorySection title="Freelance Work"
+                        className="bg-sunshine"
                         from="2017"
                         to="2018"
                         galleryImages={[
@@ -195,7 +195,6 @@ export default function Page() {
                             "CMS/PHP (Silverstripe, Wordpress)"]}/>
     <WorkHistorySection title="Competenz"
                         from="May 2012"
-                        className="bg-sunshine"
                         to="May 2017"
                         leadingText="I worked here for five years and loved the wide range of work."
                         text=" I came on as an 'Instructional Designer' and then 'Multimedia designer'
@@ -228,6 +227,7 @@ export default function Page() {
                             "SVG illustration, 3D modeling"
                         ]}/>
     <WorkHistorySection title="Degree"
+                        className="bg-sunshine"
                         embed="https://www.youtube.com/embed/uHlBHGO6r1U?si=9BdEWxLkSE27o50"
                         leadingText="Bachelor of Media Arts - Digital Media Design Major. This is a time capsule of what I thought was cool in 2011."
                         text=" To be honest I wasn't sure what I wanted to do at this stage of my life, but immediately fell in love with coding and interaction design.

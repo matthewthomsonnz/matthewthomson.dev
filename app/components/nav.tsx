@@ -15,7 +15,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <aside className="-ml-[8px] tracking-tight bg-sunshine sticky top-0">
+    <aside className="-ml-[8px] tracking-tight bg-sunshine sticky top-0 z-1">
       <div className="max-w-xl mx-auto ">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"

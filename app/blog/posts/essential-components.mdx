@@ -11,3 +11,35 @@ summary: 'The summary'
 - Input Modal
   - takes an array of field types
     - e.g. [FIELD-TYPES.RICH_TEXT_FIELD, ]
+
+
+
+- tab header
+
+- tiptap rich text field
+
+- styled dropdown/select/autocomplete
+  - should take a prefix that can be text or an icon
+  - or replace the component entirely with e.g. an initialsBadge
+  - should be able to pass colours as the selection items ( nice for stages - where the start of the array is red, middle is yellow, end is green)
+  - bulk select/edit/delete/rename/archive
+
+
+
+
+- datepicker and timepicker
+  - timepicker should mimic the google calendar one - where it takes the next 15 min increment from the current time
+  - or allows you to enter a custom one
+  - datepicker should be a text input, that helps you manually enter/autofill a date via datepicker
+  - should use day.js for developer clarity/verbosity
+
+- input data table
+  - input fields in each of the <td> cells
+  - overrides Vuetifys entire body slot with raw html to improve performance
+
+- draggable nested list
+
+- filters + data table ( no inputs in table)
+  - must be easy to set up consistently with a composable
+    - e.g. pagination/page/perPage
+    - custom component slots that loop over the headers passed ( can be messy otherwise e.g. if context === something, show this otherwise hide that)
