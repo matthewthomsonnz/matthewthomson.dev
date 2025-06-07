@@ -4,10 +4,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
 
-// Import remark-gfm
 import remarkGfm from 'remark-gfm'
 
-// Your existing Table component (already good!)
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
       <th key={index}>{header}</th>

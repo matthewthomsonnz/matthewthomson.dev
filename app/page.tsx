@@ -36,16 +36,13 @@ export default function Page() {
         </div>
         <div className=" ">
             <div className="max-w-xl mx-auto bg-sunshine px-8 py-8">
-            <p className="mb-4">
-                {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
-            </p>
-            {/*<div className="my-8">*/}
-            {/*    <BlogPosts />*/}
-            {/*</div>*/}
+                <p className="mb-4">
+                    Web Developer the last 7 years, Designer the 5 before that.
+                </p>
+                <p className="mb-4">
+                   I code user interfaces that follow design and UX principles. All while focusing on maintainablity, reusability, and high(ish) standards.
+                </p>
+                <p>I've become good at migrating crusty old front end code to modern, maintainable and performant UI that customers seem to like.</p>
         </div>
         </div>
     </section>
@@ -53,16 +50,16 @@ export default function Page() {
           {showRaveHistory && ( <>
     <WorkHistorySection title="Rave"
                         className="bg-sunshine"
-                        leadingText="Currently working here, have specialised the last half almost entirely in front end building with Vue 3 and Vuetify"
-                        text="I came on to Rave and it was full of quickly written components. I took the lead on the whole front end and have brought rave from a dated looking,
-                            to a premium feeling consistent platform. We don't have a designer so with my background I will wear the hat of UI designer, UX specialist"
+                        leadingText="Rave is a web application currently in Laravel, built in various stages over many years - all with wilding varying approaches, many with room for improvemnent."
+                        text=" I've been in charge of the direction of the front end
+                        the last couple of years. I have brought it from something less desirable, to a premium feeling cohesive software which is maintainable and reusable, consistent, and is built on good code and design principles."
                         from="Dec 2022"
                         to="Present"
-                        items={[' Interviewed and hired three front end devs in 2024/2025.',
-                            'Personally reasearched, lead and implemented a migration away from a slow legacy vue 2/webpack toolchain to a  Vue 3+vite monorepo apps collection',
+                        items={[ 'Personally reasearched, lead and implemented a migration away from a slow legacy vue 2/webpack toolchain to a  Vue 3+vite monorepo apps collection' ,
+                        ' Interviewed and hired three front end devs in 2024/2025.',
                             'New UI components/improved existing ones',
                             'Implemented tests (testing-library, jest)',
-                            'rave was turned from a janky low budget to premium feeling brancd thanks to me',
+                            'rave was turned from a janky low budget to premium feeling brand',
                             'Phased out a role/flag based UI practice with a permission based RESTful HATEAOS pattern to show/hide actions and handle messaging',
                         ]}/>
     <WorkHistorySection title="Shift72"
@@ -100,6 +97,7 @@ export default function Page() {
                             'Admin system Angular and Bootsrap',
                             'Geoblocking and pricing regions',
                             'React components and payment gateways',
+                            'Pixel perfect, storybook.js',
                         ]}/>
     <WorkHistorySection title="Media 10"
                         from="March 2019"

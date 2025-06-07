@@ -1,6 +1,5 @@
 'use client';
 import useEmblaCarousel from 'embla-carousel-react';
-// import 'yet-another-react-lightbox/styles.css';
 import {useState, useCallback, useEffect} from 'react';
 
 interface GalleryImage {
@@ -64,7 +63,8 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({
                     <span className=" mb-2 font-italic">{from} - {to}</span>
                 </div>
                 <p className="mb-8">{leadingText}</p>
-                <p className="fw-400 font-italic">{text}</p>
+                <p className=" mb-5">{text}</p>
+                    <p className="mb-5">Notable achievements:</p>
                 <div className="d-flex flex-wrap">
                     <div className=' w-100 w-md-50 mb-7'>
                         <ul>
@@ -84,19 +84,35 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({
                                             allowFullScreen></iframe>
                                 </div>)
                             : (
+                                <div className=" relative">
+                                <button
+                                    className="embla__prev absolute top-1/2 -translate-y-1/2 left-0 -translate-x-full z-10 text-2xl text-gray-800 hover:text-gray-900 rounded-full p-2"
+                                    onClick={scrollPrev}
+                                >
+                                    [ {'<='} ] {/* Still your arrows! */}
+                                </button>
+
+                        {/* Right Navigation button */}
+                            <button
+                            className="embla__next absolute top-1/2 -translate-y-1/2 right-0 translate-x-full z-10 text-2xl text-gray-800 hover:text-gray-900 rounded-full p-2"
+                            onClick={scrollNext}
+                    >
+                        [ {'=>'} ] {/* Still your arrows! */}
+                    </button>
                                 <div className="embla">
-                                    <div className="flex justify-space-between mx-2">
-                                        <button className="embla__prev" onClick={scrollPrev}>
-                                            [ {' <= '} ]
-                                        </button>
-                                        <button className="embla__next ml-auto" onClick={scrollNext}>
-                                            [ {' => '} ]
-                                        </button>
-                                    </div>
+
                                     <div className="embla__viewport"
                                          ref={emblaRef}
                                     >
                                         <div className="embla__container">
+                                            <div style={{padding: '10px'}}
+                                                 className="embla__slide"
+                                            >
+
+                                                <video width="640" height="360" autoPlay muted loop>
+                                                    <source src='/rave/timesheets.webm' type="video/webm"/>
+                                                </video>
+                                            </div>
                                             {galleryImages.map((image, index) => (
                                                 <div key={index} style={{padding: '10px'}}
                                                      className="embla__slide"
@@ -114,6 +130,7 @@ const WorkHistorySection: React.FC<WorkHistorySectionProps> = ({
                                         </div>
                                     </div>
 
+                                </div>
                                 </div>
                             )
                         }
